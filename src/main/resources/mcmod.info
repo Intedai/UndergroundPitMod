@@ -1,0 +1,16 @@
+[
+{
+  "modid": "undergroundpitmod",
+  "name": "Underground Pit Mod",
+  "description": "Events and such.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Intedai"],
+  "credits": "Intedai and contributors",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
