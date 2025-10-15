@@ -27,6 +27,16 @@ public class Event {
 		return timeUntil;
 	}
 	
+	public boolean getIsMajor()
+	{
+		return isMajor;
+	}
+	
+	public EventType getEventType()
+	{
+		return type;
+	}
+
 	public boolean startsSoon(long timeUntil)
 	{
 		return isMajor && timeUntil < 0 && timeUntil >= -3 * 60 * 1000;
