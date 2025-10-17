@@ -34,7 +34,8 @@ public class UPM_Command extends CommandBase {
     		.append("\n/upm <event name> to see every time the event starts")
     		.append("\n/upm refresh to fetch api data")
     		.append("\n/upm major to see upcoming major events")
-    		.append("\n/upm minor to see upcoming minor events");
+    		.append("\n/upm minor to see upcoming minor events")
+    		.append("\n/upm map or maps to see current and next map");
     	
     	return sb.toString();
     }
@@ -102,6 +103,10 @@ public class UPM_Command extends CommandBase {
 	    					return;
 	    				case "minor":
 	    					sendString(sender, getEventsOnCondition(EVENT_COUNT, event -> !event.getIsMajor()));
+	    					return;
+	    				case "map":
+	    				case "maps":
+	    					sendString(sender, PitMaps.getMapInfo());
 	    					return;
     				}
     			}
