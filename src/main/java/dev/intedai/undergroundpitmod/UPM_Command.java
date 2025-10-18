@@ -30,12 +30,13 @@ public class UPM_Command extends CommandBase {
 
     @Override
     public String getCommandUsage(ICommandSender sender) {
-    	StringBuilder sb = new StringBuilder("\n/upm to see upcoming events")
-    		.append("\n/upm <event name> to see every time the event starts")
-    		.append("\n/upm refresh to fetch api data")
-    		.append("\n/upm major to see upcoming major events")
-    		.append("\n/upm minor to see upcoming minor events")
-    		.append("\n/upm map or maps to see current and next map");
+    	StringBuilder sb = new StringBuilder("\n/upm - View upcoming events")
+    		.append("\n/upm help - View all commands")
+    		.append("\n/upm <event> - View an event's schedule")
+    		.append("\n/upm refresh - Refresh API data")
+    		.append("\n/upm major - View upcoming major events")
+    		.append("\n/upm minor - View upcoming minor events")
+    		.append("\n/upm map|maps - View current and next map");
     	
     	return sb.toString();
     }
@@ -94,6 +95,9 @@ public class UPM_Command extends CommandBase {
     			{			
     				switch(args[0].toLowerCase())
     				{
+    					case "help":
+    						sendString(sender, getCommandUsage(sender).substring(1)+"\n");
+    						return;
 	    				case "refresh":
 	    					refreshEvents();
 	    					sendString(sender, "§aFetched data from BrookeAFK's API.\n");
