@@ -12,11 +12,13 @@ public class PitMaps {
 	{
 		final long rotationLen = MAP_ROTATION.length * WEEK;
 		long now = System.currentTimeMillis();
-		long elapsed = now - SAMPLE_MAP_ROTATION;
-		
-		long timeUntilNext = (rotationLen - (elapsed % rotationLen)) % WEEK;
-		int currIdx = (int) ((timeUntilNext / WEEK) % MAP_ROTATION.length);
+
+		long elapsed = SAMPLE_MAP_ROTATION - now;
+
+		int currIdx = (int) (Math.floorMod(elapsed, rotationLen) / WEEK);
 		int nextIdx = Math.floorMod(currIdx - 1, MAP_ROTATION.length);
+		
+        long timeUntilNext = Math.floorMod(elapsed, WEEK);
 		
 		StringBuilder sb = new StringBuilder("§7Current map: ")
 				.append(MAP_ROTATION[currIdx].getColor())
